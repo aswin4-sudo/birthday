@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     createBalloons();
     createConfetti();
     initCountdown();
+    initSpecialPhoto(); 
     
     // 1. Candle Functionality
     function initCandle() {
@@ -615,4 +616,316 @@ document.addEventListener('DOMContentLoaded', function() {
         createMiniHearts(window.innerWidth/2, window.innerHeight/2);
     }, 1500);
 });
+    // 16. Special Photo Effects
+    function initSpecialPhoto() {
+        const specialPhoto = document.getElementById('specialPhoto');
+        const revealBtn = document.getElementById('revealPhotoBtn');
+        const sparklesBtn = document.getElementById('addSparklesBtn');
+        const loveEffectBtn = document.getElementById('loveEffectBtn');
+        
+        if (specialPhoto) {
+            // Photo click effect
+            specialPhoto.addEventListener('click', function() {
+                // Add click animation
+                this.classList.add('photo-reveal');
+                
+                // Create hearts around photo
+                createPhotoHearts(this);
+                
+                // Add glow effect
+                this.classList.add('photo-glow');
+                
+                setTimeout(() => {
+                    this.classList.remove('photo-reveal');
+                    alert("📸 This photo captures a beautiful memory of ABHI! 💕\n\nMay this moment be remembered forever in your heart!");
+                }, 500);
+            });
+            
+            // Photo hover effect
+            specialPhoto.addEventListener('mouseenter', function() {
+                createMiniSparkles(this.getBoundingClientRect());
+            });
+        }
+        
+        // Reveal Photo Button
+        if (revealBtn) {
+            revealBtn.addEventListener('click', function() {
+                // Add reveal animation to photo
+                specialPhoto.classList.add('photo-reveal');
+                
+                // Create celebration effect
+                createPhotoRevealEffect();
+                
+                // Update button
+                revealBtn.innerHTML = '<i class="fas fa-check"></i> Photo Revealed!';
+                revealBtn.style.background = 'linear-gradient(to right, #4caf50, #2e7d32)';
+                
+                setTimeout(() => {
+                    revealBtn.innerHTML = '<i class="fas fa-gift"></i> Reveal Special Photo';
+                    revealBtn.style.background = 'linear-gradient(to right, #e91e63, #c2185b)';
+                    specialPhoto.classList.remove('photo-reveal');
+                }, 2000);
+            });
+        }
+        
+        // Add Sparkles Button
+        if (sparklesBtn) {
+            sparklesBtn.addEventListener('click', function() {
+                createPhotoSparkles();
+                
+                // Update button
+                sparklesBtn.innerHTML = '<i class="fas fa-sparkles"></i> Sparkles Added!';
+                sparklesBtn.style.background = 'linear-gradient(to right, #ff9800, #ff5722)';
+                
+                setTimeout(() => {
+                    sparklesBtn.innerHTML = '<i class="fas fa-sparkles"></i> Add Sparkles';
+                    sparklesBtn.style.background = 'linear-gradient(to right, #e91e63, #c2185b)';
+                }, 2000);
+            });
+        }
+        
+        // Love Effect Button
+        if (loveEffectBtn) {
+            loveEffectBtn.addEventListener('click', function() {
+                createPhotoLoveEffect();
+                
+                // Update button
+                loveEffectBtn.innerHTML = '<i class="fas fa-heart"></i> Love Added!';
+                loveEffectBtn.style.background = 'linear-gradient(to right, #e91e63, #880e4f)';
+                
+                setTimeout(() => {
+                    loveEffectBtn.innerHTML = '<i class="fas fa-heart-circle-plus"></i> Love Effect';
+                    loveEffectBtn.style.background = 'linear-gradient(to right, #e91e63, #c2185b)';
+                }, 2000);
+            });
+        }
+    }
+    
+    // 17. Photo Sparkles Effect
+    function createPhotoSparkles() {
+        const photo = document.getElementById('specialPhoto');
+        if (!photo) return;
+        
+        const rect = photo.getBoundingClientRect();
+        const symbols = ['✨', '🌟', '⭐', '💫', '⚡'];
+        
+        for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'photo-sparkle';
+                sparkle.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                sparkle.style.left = Math.random() * (rect.width - 30) + rect.left + 'px';
+                sparkle.style.top = Math.random() * (rect.height - 30) + rect.top + 'px';
+                sparkle.style.color = ['#ffeb3b', '#ff9800', '#ff4081', '#4caf50'][Math.floor(Math.random() * 4)];
+                
+                document.body.appendChild(sparkle);
+                
+                // Animate sparkle
+                let opacity = 1;
+                let scale = 1;
+                
+                function animateSparkle() {
+                    opacity -= 0.02;
+                    scale += 0.01;
+                    
+                    sparkle.style.opacity = opacity;
+                    sparkle.style.transform = `scale(${scale})`;
+                    
+                    if (opacity > 0) {
+                        requestAnimationFrame(animateSparkle);
+                    } else {
+                        if (sparkle.parentNode) {
+                            sparkle.remove();
+                        }
+                    }
+                }
+                
+                animateSparkle();
+                
+            }, i * 50);
+        }
+    }
+    
+    // 18. Photo Love Effect
+    function createPhotoLoveEffect() {
+        const photo = document.getElementById('specialPhoto');
+        if (!photo) return;
+        
+        const rect = photo.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        // Add glow to photo
+        photo.classList.add('photo-glow');
+        
+        // Create hearts
+        for (let i = 0; i < 15; i++) {
+            setTimeout(() => {
+                const heart = document.createElement('div');
+                heart.className = 'photo-heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = centerX + 'px';
+                heart.style.top = centerY + 'px';
+                heart.style.color = '#ff4081';
+                
+                document.body.appendChild(heart);
+                
+                // Random direction
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 3 + 2;
+                
+                function animateHeart() {
+                    const rect = heart.getBoundingClientRect();
+                    let x = parseFloat(heart.style.left);
+                    let y = parseFloat(heart.style.top);
+                    
+                    x += Math.cos(angle) * speed;
+                    y += Math.sin(angle) * speed;
+                    heart.style.opacity = parseFloat(heart.style.opacity) - 0.01;
+                    
+                    heart.style.left = x + 'px';
+                    heart.style.top = y + 'px';
+                    
+                    if (heart.style.opacity > 0) {
+                        requestAnimationFrame(animateHeart);
+                    } else {
+                        if (heart.parentNode) {
+                            heart.remove();
+                        }
+                    }
+                }
+                
+                heart.style.opacity = '1';
+                animateHeart();
+                
+            }, i * 100);
+        }
+        
+        // Remove glow after 3 seconds
+        setTimeout(() => {
+            photo.classList.remove('photo-glow');
+        }, 3000);
+    }
+    
+    // 19. Photo Reveal Effect
+    function createPhotoRevealEffect() {
+        const photo = document.getElementById('specialPhoto');
+        if (!photo) return;
+        
+        // Add border animation
+        photo.style.border = '5px solid transparent';
+        photo.style.background = 'linear-gradient(white, white) padding-box, linear-gradient(45deg, #ff4081, #7b1fa2, #2196f3) border-box';
+        
+        // Create confetti around photo
+        const rect = photo.getBoundingClientRect();
+        createMiniHearts(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        
+        // Add message
+        setTimeout(() => {
+            const message = document.createElement('div');
+            message.innerHTML = '🎉 For ABHI! 🎉';
+            message.style.position = 'fixed';
+            message.style.top = rect.top - 50 + 'px';
+            message.style.left = rect.left + rect.width / 2 + 'px';
+            message.style.transform = 'translateX(-50%)';
+            message.style.background = 'linear-gradient(to right, #ff4081, #7b1fa2)';
+            message.style.color = 'white';
+            message.style.padding = '10px 20px';
+            message.style.borderRadius = '20px';
+            message.style.fontWeight = 'bold';
+            message.style.zIndex = '1000';
+            message.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            
+            document.body.appendChild(message);
+            
+            // Animate message
+            setTimeout(() => {
+                message.style.opacity = '0';
+                message.style.transform = 'translateX(-50%) translateY(-20px)';
+                setTimeout(() => {
+                    if (message.parentNode) {
+                        message.remove();
+                    }
+                }, 500);
+            }, 1500);
+        }, 300);
+    }
+    
+    // 20. Mini Sparkles on Hover
+    function createMiniSparkles(rect) {
+        const symbols = ['✨', '🌟'];
+        
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                sparkle.style.position = 'fixed';
+                sparkle.style.fontSize = '16px';
+                sparkle.style.left = Math.random() * rect.width + rect.left + 'px';
+                sparkle.style.top = Math.random() * rect.height + rect.top + 'px';
+                sparkle.style.zIndex = '10';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.color = '#ffeb3b';
+                
+                document.body.appendChild(sparkle);
+                
+                // Fade out
+                setTimeout(() => {
+                    sparkle.style.opacity = '0';
+                    sparkle.style.transform = 'scale(1.5)';
+                    setTimeout(() => {
+                        if (sparkle.parentNode) {
+                            sparkle.remove();
+                        }
+                    }, 300);
+                }, 300);
+                
+            }, i * 100);
+        }
+    }
+    
+    // 21. Create Hearts Around Photo
+    function createPhotoHearts(photoElement) {
+        const rect = photoElement.getBoundingClientRect();
+        const hearts = ['❤️', '💖', '💕'];
+        
+        for (let i = 0; i < 8; i++) {
+            const heart = document.createElement('div');
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.position = 'fixed';
+            heart.style.fontSize = '24px';
+            heart.style.left = rect.left + rect.width / 2 + 'px';
+            heart.style.top = rect.top + rect.height / 2 + 'px';
+            heart.style.zIndex = '10';
+            heart.style.pointerEvents = 'none';
+            heart.style.color = '#ff4081';
+            
+            document.body.appendChild(heart);
+            
+            // Animate outwards
+            const angle = (i / 8) * Math.PI * 2;
+            const distance = 100;
+            let currentDistance = 0;
+            
+            function animate() {
+                currentDistance += 5;
+                const x = Math.cos(angle) * currentDistance;
+                const y = Math.sin(angle) * currentDistance;
+                
+                heart.style.transform = `translate(${x}px, ${y}px)`;
+                heart.style.opacity = 1 - (currentDistance / distance);
+                
+                if (currentDistance < distance) {
+                    requestAnimationFrame(animate);
+                } else {
+                    if (heart.parentNode) {
+                        heart.remove();
+                    }
+                }
+            }
+            
+            animate();
+        }
+    }
+
 
