@@ -1,0 +1,557 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f9c5d1, #c2e9fb);
+    color: #333;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px 0;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.title {
+    font-size: 3.5rem;
+    color: #ff4081;
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+    color: #e91e63;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #7b1fa2;
+    font-weight: 300;
+}
+
+/* Birthday Card */
+.birthday-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 800px;
+    animation: slideUp 1s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.birthday-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(to right, #ff4081, #7b1fa2, #2196f3);
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Cake */
+.cake {
+    position: relative;
+    width: 120px;
+    height: 100px;
+    margin: 0 auto 20px;
+}
+
+.cake-top {
+    width: 120px;
+    height: 40px;
+    background: #ffccbc;
+    border-radius: 50% 50% 0 0;
+    position: relative;
+}
+
+.cake-middle {
+    width: 140px;
+    height: 30px;
+    background: #ff8a80;
+    margin: -10px auto 0;
+    border-radius: 10px;
+}
+
+.cake-bottom {
+    width: 160px;
+    height: 40px;
+    background: #ff5252;
+    margin: 0 auto;
+    border-radius: 10px 10px 20px 20px;
+}
+
+.candle {
+    width: 10px;
+    height: 30px;
+    background: #ffeb3b;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+    border-radius: 5px;
+}
+
+.candle::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff9800;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: -25px;
+    left: -5px;
+    animation: flicker 1.5s infinite alternate;
+}
+
+.card-content h2 {
+    color: #e91e63;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.message p {
+    margin-bottom: 15px;
+}
+
+.quote {
+    font-style: italic;
+    color: #7b1fa2;
+    padding: 15px;
+    background-color: #f3e5f5;
+    border-left: 4px solid #7b1fa2;
+    margin: 20px 0;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 25px;
+    color: #ff4081;
+    font-size: 1.2rem;
+}
+
+.card-footer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px dashed #ddd;
+}
+
+.age {
+    font-size: 4rem;
+    color: #ff4081;
+    font-weight: 700;
+    font-family: 'Dancing Script', cursive;
+}
+
+.years {
+    display: block;
+    font-size: 1.5rem;
+    color: #7b1fa2;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Gallery */
+.gallery {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 1000px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.gallery h3 {
+    color: #7b1fa2;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.photo-frame {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.photo-frame:hover {
+    transform: translateY(-10px);
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+#photo1 {
+    background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+}
+
+#photo2 {
+    background: linear-gradient(135deg, #fd79a8, #e84393);
+}
+
+#photo3 {
+    background: linear-gradient(135deg, #81ecec, #00cec9);
+}
+
+#photo4 {
+    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+}
+
+.photo-frame p {
+    font-weight: 600;
+    color: #555;
+}
+
+/* Wish Section */
+.wish-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.wish-section h3 {
+    color: #ff9800;
+    margin-bottom: 15px;
+}
+
+.wish-candle {
+    position: relative;
+    width: 50px;
+    height: 150px;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+.candle-body {
+    width: 50px;
+    height: 120px;
+    background: linear-gradient(to right, #ffeb3b, #ff9800);
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+}
+
+.flame {
+    width: 25px;
+    height: 50px;
+    background: linear-gradient(to top, #ff9800, #ffeb3b, white);
+    border-radius: 50% 50% 20% 20%;
+    position: absolute;
+    top: 0;
+    left: 12.5px;
+    animation: flicker 1.5s infinite alternate;
+    transform-origin: bottom;
+}
+
+.wish-instruction {
+    margin-top: 15px;
+    color: #777;
+    font-style: italic;
+}
+
+/* Countdown */
+.countdown {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.countdown h3 {
+    color: #2196f3;
+    margin-bottom: 25px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.countdown-item {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    min-width: 120px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-item span {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2196f3;
+    display: block;
+}
+
+.countdown-item p {
+    color: #555;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.countdown-text {
+    font-size: 1.2rem;
+    color: #7b1fa2;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* Personal Message */
+.personal-message {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 800px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.personal-message h3 {
+    color: #4caf50;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.reason {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #4caf50;
+    transition: all 0.3s;
+}
+
+.reason:hover {
+    background: #e8f5e9;
+    transform: translateX(5px);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Buttons */
+.btn {
+    background: linear-gradient(to right, #ff4081, #7b1fa2);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 15px auto;
+    display: block;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.music-btn {
+    background: linear-gradient(to right, #2196f3, #21cbf3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 30px;
+    color: #555;
+}
+
+.footer-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.heart-beat {
+    color: #ff4081;
+    animation: heartbeat 1.5s infinite;
+}
+
+.footer-date {
+    margin-bottom: 20px;
+    color: #7b1fa2;
+    font-weight: 600;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #ff4081;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.icon:hover {
+    transform: translateY(-5px);
+    color: #7b1fa2;
+}
+
+/* Background Elements */
+.hearts-container, .balloons-container, .confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    5% { transform: scale(1.2); }
+    10% { transform: scale(1.1); }
+    15% { transform: scale(1.3); }
+    50% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-timer {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .countdown-item {
+        min-width: 100px;
+        padding: 15px;
+    }
+    
+    .countdown-item span {
+        font-size: 2.5rem;
+    }
+    
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .age {
+        font-size: 3rem;
+    }
+}

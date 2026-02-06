@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 19th Birthday ABHIIIIIII 🎉</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="hearts-container"></div>
+    <div class="balloons-container"></div>
+    <div class="confetti-container"></div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <h1 class="title">Happy Birthday <span class="name">ABHI</span>! 🎂</h1>
+            <p class="subtitle">Celebrating 19 amazing years of you!</p>
+        </header>
+        
+        <main>
+            <!-- Birthday Card -->
+            <div class="birthday-card">
+                <div class="card-header">
+                    <div class="cake">
+                        <div class="cake-top">
+                            <div class="candle"></div>
+                        </div>
+                        <div class="cake-middle"></div>
+                        <div class="cake-bottom"></div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <h2><i class="fas fa-heart"></i> To The Most Amazing Girl <i class="fas fa-heart"></i></h2>
+                    <div class="message">
+                        <p>Dear <strong>ABHI</strong>,</p>
+                        <p>On your special 19th birthday, I want to remind you how incredibly special you are! Every moment with you is a treasure, and today we celebrate the wonderful person you've become.</p>
+                        <p>May this year bring you endless joy, success in all your endeavors, and dreams that come true. You deserve the world and so much more!</p>
+                        <p class="quote">"The more you praise and celebrate your life, the more there is in life to celebrate." - Oprah Winfrey</p>
+                        <p>Wishing you the happiest of birthdays filled with love, laughter, and beautiful memories!</p>
+                        <div class="signature">
+                            <p>With all my love,</p>
+                            <p><em>Someone who adores you ❤️</em></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <p class="age">19 <span class="years">Years Young!</span></p>
+                </div>
+            </div>
+            
+            <!-- Photo Gallery -->
+            <div class="gallery">
+                <h3><i class="fas fa-images"></i> Memory Lane</h3>
+                <div class="photo-grid">
+                    <div class="photo-frame">
+                        <div class="photo" id="photo1">🌟</div>
+                        <p>Your Sparkling Personality</p>
+                    </div>
+                    <div class="photo-frame">
+                        <div class="photo" id="photo2">❤️</div>
+                        <p>Heart of Gold</p>
+                    </div>
+                    <div class="photo-frame">
+                        <div class="photo" id="photo3">🎨</div>
+                        <p>Creative Soul</p>
+                    </div>
+                    <div class="photo-frame">
+                        <div class="photo" id="photo4">✨</div>
+                        <p>Shining Bright</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Birthday Wish -->
+            <div class="wish-section">
+                <h3><i class="fas fa-birthday-cake"></i> Make a Birthday Wish!</h3>
+                <p>Click the candle to make your birthday wish come true!</p>
+                <div class="wish-candle">
+                    <div class="flame" id="flame"></div>
+                    <div class="candle-body" id="candle"></div>
+                </div>
+                <p class="wish-instruction">Click the candle, make a wish, and blow it out!</p>
+                <button id="resetCandle" class="btn">Relight Candle</button>
+            </div>
+            
+            <!-- Countdown -->
+            <div class="countdown">
+                <h3><i class="fas fa-hourglass-half"></i> Celebrating All Day Long!</h3>
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+                <p class="countdown-text">Of birthday bliss for ABHI!</p>
+            </div>
+            
+            <!-- Personal Message -->
+            <div class="personal-message">
+                <h3><i class="fas fa-star"></i> 19 Reasons Why ABHI is Amazing</h3>
+                <div class="reasons">
+                    <div class="reason">1. Cute vavaaaaa 💕</div>
+                    <div class="reason">2. You are the prettiest woman I've ever known — not just by face, but by heart, smile, and the way you exist in my life.</div>
+                    <div class="reason">3. Even when we fight, my love for you never decreases. The moment we fix things, I fall for you all over again… deeper than before.</div>
+                    
+                    <button id="showMore" class="btn">Show More Reasons</button>
+                    <div id="moreReasons" class="hidden">
+                        <div class="reason">4. Your smile has the power to erase my anger, calm my heart, and remind me why I chose you every single day.</div>
+                        <div class="reason">5. Arguments may raise our voices, but love always brings us back closer. That's how I know you're my forever.</div>
+                        <div class="reason">6. You have the most beautiful soul I've ever encountered ❤️</div>
+                        <div class="reason">7. Your laughter is my favorite sound in the world 🎶</div>
+                        <div class="reason">8. You make every day brighter just by being you ☀️</div>
+                        <div class="reason">9. Your strength inspires me every single day 💪</div>
+                        <div class="reason">10. You understand me like no one else does 🤗</div>
+                        <div class="reason">11. Your kindness touches everyone around you ✨</div>
+                        <div class="reason">12. You have the most beautiful eyes I've ever seen 👀</div>
+                        <div class="reason">13. Your intelligence amazes me every day 🧠</div>
+                        <div class="reason">14. You make me want to be a better person 🌟</div>
+                        <div class="reason">15. Your hugs are my safe place 🤗</div>
+                        <div class="reason">16. You have the most perfect smile 😊</div>
+                        <div class="reason">17. Your love makes me feel complete 💖</div>
+                        <div class="reason">18. You're my best friend and my soulmate 👫</div>
+                        <div class="reason">19. I fall in love with you more every single day 💕</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p class="footer-text">Made with <i class="fas fa-heart heart-beat"></i> for ABHI's 19th Birthday</p>
+            <p class="footer-date">February 7, 2026</p>
+            <div class="social-icons">
+                <div class="icon"><i class="fas fa-birthday-cake"></i></div>
+                <div class="icon"><i class="fas fa-gift"></i></div>
+                <div class="icon"><i class="fas fa-heart"></i></div>
+                <div class="icon"><i class="fas fa-star"></i></div>
+                <div class="icon"><i class="fas fa-music"></i></div>
+            </div>
+            
+            <!-- Music Section - CORRECTED -->
+            <button id="musicToggle" class="btn music-btn">
+                <i class="fas fa-play"></i> Play Birthday Music
+            </button>
+            <audio id="birthdayMusic" preload="auto" loop>
+                <!-- Multiple reliable sources -->
+                <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3" type="audio/mpeg">
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <button id="beepToggle" class="btn" style="background: linear-gradient(to right, #4caf50, #8bc34a); margin-top: 10px;">
+                <i class="fas fa-music"></i> Play Birthday Tune
+            </button>
+            <button id="voiceToggle" class="btn" style="background: linear-gradient(to right, #9c27b0, #673ab7); margin-top: 10px;">
+                <i class="fas fa-volume-up"></i> Voice Birthday Message
+            </button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
